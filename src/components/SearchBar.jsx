@@ -22,7 +22,7 @@ const SearchBar = ({ theme }) => {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className={`flex items-center gap-2 pl-3 pr-4 py-2 rounded-lg transition-colors ${
+        className={`flex items-center mx-10 gap-7 px-4 py-2 rounded-lg transition-colors ${
           isDark
             ? 'bg-white/5 hover:bg-white/10 text-white/70'
             : 'bg-gray-100 hover:bg-gray-200 text-gray-600'
