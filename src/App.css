@@ -1,0 +1,16 @@
+/* Keep all existing styles and add these new styles at the end */
+
+/* Code block container styles */
+.blog-post pre {
+  position: relative;
+}
+
+/* Copy button styles */
+.blog-post pre .group button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.blog-post pre:hover .group button {
+  opacity: 1;
+}
