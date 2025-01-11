@@ -56,9 +56,26 @@ function App() {
         } border-b`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-              <h1 className="text-2xl font-bold text-accent">DevBlog</h1>
+
+                <Link
+                  to="/"
+                  className="text-2xl font-bold text-accent">
+                    React Lab
+                </Link>
+
               <div className="flex items-center gap-8">
                 <SearchBar theme={theme} />
+
+                <nav>
+                  <Link
+                    to="/"
+                    className={`transition-colors ${
+                      theme === 'dark' ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                    }`}
+                  >
+                    Home
+                  </Link>
+                </nav>
                 <button
                   onClick={toggleTheme}
                   className={`p-2 rounded-lg transition-colors ${
@@ -72,16 +89,6 @@ function App() {
                     <Moon className="w-5 h-5 text-gray-600" />
                   )}
                 </button>
-                <nav>
-                  <Link
-                    to="/"
-                    className={`transition-colors ${
-                      theme === 'dark' ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'
-                    }`}
-                  >
-                    Home
-                  </Link>
-                </nav>
               </div>
             </div>
           </div>
