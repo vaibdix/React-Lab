@@ -57,7 +57,7 @@ export default {
             '--tw-prose-captions': theme('colors.white'),
             '--tw-prose-code': theme('colors.white'),
             '--tw-prose-pre-code': theme('colors.white'),
-            '--tw-prose-pre-bg': 'rgb(0 0 0 / 0.1)',
+            '--tw-prose-pre-bg': 'rgb(23 25 30)',
             '--tw-prose-th-borders': theme('colors.white'),
             '--tw-prose-td-borders': theme('colors.white'),
           },

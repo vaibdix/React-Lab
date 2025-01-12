@@ -45,7 +45,7 @@ const BlogPost = ({ postPath, theme }) => {
         try {
           const html = highlighter.codeToHtml(code, {
             lang,
-            theme: 'github-dark',
+            theme: 'houston',
           });
           return (
             <div className="relative group">

@@ -9,7 +9,7 @@ export const loadHighlighter = async () => {
 
   try {
     highlighterInstance = await createHighlighter({
-      themes: ['github-dark'],
+      themes: ['houston'],
       langs: [
         'javascript',
         'typescript',
