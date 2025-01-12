@@ -12,9 +12,7 @@ const posts = Object.entries(markdownFiles).reduce((acc, [path, module]) => {
 
   // Extract excerpt (first paragraph after title)
   const excerptMatch = content.match(/^(?!#)(.+)$/m);
-  const excerpt = excerptMatch
-    ? excerptMatch[1].slice(0, 150) + '...'
-    : 'Click to read more...';
+  const excerpt = excerptMatch ? excerptMatch[1].slice(0, 150) + '...' : 'Click to read more...';
 
   acc[fileName] = {
     path: content,

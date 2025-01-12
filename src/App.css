@@ -29,7 +29,9 @@ body {
   width: 100%;
   margin: 0;
   font-family: var(--font-sans);
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition:
+    background-color 0.5s ease,
+    color 0.5s ease;
   line-height: 1.6;
 }
 
@@ -66,7 +68,6 @@ body {
   font-size: 0.9em;
 }
 
-
 /* Keep all existing styles and add these new styles at the end */
 
 /* Code block container styles */
@@ -84,7 +85,6 @@ body {
 .blog-post pre:hover .group button {
   opacity: 1;
 }
-
 
 .meteor-effect {
   position: absolute;

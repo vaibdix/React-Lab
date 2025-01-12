@@ -8,12 +8,13 @@ import { getAllPosts } from './utils/blogPosts';
 import './App.css';
 import { TextHoverEffectDemo } from './components/ui/TextHoverEffectDemo';
 
-
 function App() {
   const posts = getAllPosts();
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem('theme');
-    return savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    return (
+      savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    );
   });
 
   useEffect(() => {
@@ -35,7 +36,9 @@ function App() {
 
   return (
     <Router>
-      <div className={`app min-h-screen relative overflow-hidden ${theme === 'dark' ? 'bg-primary text-white' : 'bg-white text-gray-900'}`}>
+      <div
+        className={`app min-h-screen relative overflow-hidden ${theme === 'dark' ? 'bg-primary text-white' : 'bg-white text-gray-900'}`}
+      >
         {/* Meteor effect */}
         <div className="meteor-effect">
           {meteors.map((meteor) => (
@@ -51,17 +54,16 @@ function App() {
           ))}
         </div>
 
-        <header className={`fixed top-0 z-50 w-full backdrop-blur-md ${
-          theme === 'dark' ? 'bg-primary/50 border-white/10' : 'bg-white/50 border-gray-200'
-        } border-b`}>
+        <header
+          className={`fixed top-0 z-50 w-full backdrop-blur-md ${
+            theme === 'dark' ? 'bg-primary/50 border-white/10' : 'bg-white/50 border-gray-200'
+          } border-b`}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center justify-between h-16">
-
-                <Link
-                  to="/"
-                  className="text-2xl font-bold text-accent">
-                    React Lab
-                </Link>
+              <Link to="/" className="text-2xl font-bold text-accent">
+                React Lab
+              </Link>
 
               <div className="flex items-center gap-8">
                 <SearchBar theme={theme} />
@@ -70,7 +72,9 @@ function App() {
                   <Link
                     to="/"
                     className={`transition-colors ${
-                      theme === 'dark' ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                      theme === 'dark'
+                        ? 'text-white/80 hover:text-white'
+                        : 'text-gray-600 hover:text-gray-900'
                     }`}
                   >
                     Home
@@ -109,8 +113,8 @@ function App() {
           </div>
         </main>
 
-        <footer >
-        <TextHoverEffectDemo />
+        <footer>
+          <TextHoverEffectDemo />
         </footer>
       </div>
     </Router>

@@ -43,25 +43,31 @@ const SearchModal = ({ isOpen, onClose, theme }) => {
 
     // Highlight the matching text
     const regex = new RegExp(searchQuery, 'gi');
-    preview = preview.replace(regex, match => `<mark class="bg-accent/30 text-inherit">${match}</mark>`);
+    preview = preview.replace(
+      regex,
+      (match) => `<mark class="bg-accent/30 text-inherit">${match}</mark>`
+    );
 
     return start > 0 ? `...${preview}...` : `${preview}...`;
   };
 
-  const handleKeyDown = useCallback((e) => {
-    if (e.key === 'ArrowDown') {
-      e.preventDefault();
-      setActiveIndex(prev => (prev + 1) % results.length);
-    } else if (e.key === 'ArrowUp') {
-      e.preventDefault();
-      setActiveIndex(prev => (prev - 1 + results.length) % results.length);
-    } else if (e.key === 'Enter' && results[activeIndex]) {
-      navigate(`/post/${results[activeIndex].slug}`);
-      onClose();
-    } else if (e.key === 'Escape') {
-      onClose();
-    }
-  }, [results, activeIndex, navigate, onClose]);
+  const handleKeyDown = useCallback(
+    (e) => {
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        setActiveIndex((prev) => (prev + 1) % results.length);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        setActiveIndex((prev) => (prev - 1 + results.length) % results.length);
+      } else if (e.key === 'Enter' && results[activeIndex]) {
+        navigate(`/post/${results[activeIndex].slug}`);
+        onClose();
+      } else if (e.key === 'Escape') {
+        onClose();
+      }
+    },
+    [results, activeIndex, navigate, onClose]
+  );
 
   useEffect(() => {
     handleSearch(query);
@@ -95,9 +101,7 @@ const SearchModal = ({ isOpen, onClose, theme }) => {
             exit={{ opacity: 0, scale: 0.95 }}
             className={`fixed top-[20%] left-1/2 -translate-x-1/2 w-full max-w-xl z-50 ${
               isDark ? 'bg-secondary' : 'bg-white'
-            } rounded-xl shadow-2xl border ${
-              isDark ? 'border-white/10' : 'border-gray-200'
-            }`}
+            } rounded-xl shadow-2xl border ${isDark ? 'border-white/10' : 'border-gray-200'}`}
           >
             <div className="p-4">
               <div className="flex items-center gap-3 px-3 py-2 rounded-lg border mb-2">
@@ -108,16 +112,19 @@ const SearchModal = ({ isOpen, onClose, theme }) => {
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder="Search docs..."
                   className={`flex-1 bg-transparent border-none outline-none ${
-                    isDark ? 'text-white placeholder-white/50' : 'text-gray-900 placeholder-gray-500'
+                    isDark
+                      ? 'text-white placeholder-white/50'
+                      : 'text-gray-900 placeholder-gray-500'
                   }`}
                   onKeyDown={handleKeyDown}
                   autoFocus
                 />
-                <kbd className={`px-2 py-1 rounded text-sm ${
-                  isDark ? 'bg-white/10 text-white/70' : 'bg-gray-100 text-gray-500'
-                }`}>
-                  <Command size={14} className="inline mr-1" />
-                  K
+                <kbd
+                  className={`px-2 py-1 rounded text-sm ${
+                    isDark ? 'bg-white/10 text-white/70' : 'bg-gray-100 text-gray-500'
+                  }`}
+                >
+                  <Command size={14} className="inline mr-1" />K
                 </kbd>
               </div>
 
@@ -130,21 +137,11 @@ const SearchModal = ({ isOpen, onClose, theme }) => {
                       onClose();
                     }}
                     className={`p-4 cursor-pointer rounded-lg transition-colors ${
-                      index === activeIndex
-                        ? isDark
-                          ? 'bg-white/5'
-                          : 'bg-gray-100'
-                        : ''
-                    } ${
-                      isDark
-                        ? 'hover:bg-white/5'
-                        : 'hover:bg-gray-100'
-                    }`}
+                      index === activeIndex ? (isDark ? 'bg-white/5' : 'bg-gray-100') : ''
+                    } ${isDark ? 'hover:bg-white/5' : 'hover:bg-gray-100'}`}
                   >
                     <div className="flex items-center justify-between">
-                      <h3 className={`font-medium ${
-                        isDark ? 'text-white/90' : 'text-gray-900'
-                      }`}>
+                      <h3 className={`font-medium ${isDark ? 'text-white/90' : 'text-gray-900'}`}>
                         {result.title}
                       </h3>
                       <ArrowRight
@@ -153,9 +150,7 @@ const SearchModal = ({ isOpen, onClose, theme }) => {
                       />
                     </div>
                     <p
-                      className={`text-sm mt-1 ${
-                        isDark ? 'text-white/60' : 'text-gray-600'
-                      }`}
+                      className={`text-sm mt-1 ${isDark ? 'text-white/60' : 'text-gray-600'}`}
                       dangerouslySetInnerHTML={{ __html: result.preview }}
                     />
                   </div>

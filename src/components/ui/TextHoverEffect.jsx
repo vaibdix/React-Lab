@@ -1,11 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export const TextHoverEffect = ({ text, duration = 0.3 }) => {
   const svgRef = useRef(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hovered, setHovered] = useState(false);
-  const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
+  const [maskPosition, setMaskPosition] = useState({ cx: '50%', cy: '50%' });
 
   useEffect(() => {
     if (svgRef.current && cursor.x !== 0 && cursor.y !== 0) {
@@ -51,7 +51,7 @@ export const TextHoverEffect = ({ text, duration = 0.3 }) => {
           gradientUnits="userSpaceOnUse"
           r="20%"
           animate={maskPosition} // Use the maskPosition here
-          transition={{ duration: 0.3, ease: "easeOut" }}
+          transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           <stop offset="0%" stopColor="white" />
           <stop offset="100%" stopColor="black" />
@@ -59,13 +59,7 @@ export const TextHoverEffect = ({ text, duration = 0.3 }) => {
 
         {/* Mask definition */}
         <mask id="textMask">
-          <rect
-            x="0"
-            y="0"
-            width="100%"
-            height="100%"
-            fill="url(#revealMask)"
-          />
+          <rect x="0" y="0" width="100%" height="100%" fill="url(#revealMask)" />
         </mask>
       </defs>
 
@@ -97,7 +91,7 @@ export const TextHoverEffect = ({ text, duration = 0.3 }) => {
         }}
         transition={{
           duration: 0.6,
-          ease: "easeInOut",
+          ease: 'easeInOut',
         }}
       >
         {text}

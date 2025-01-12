@@ -30,19 +30,12 @@ const SearchBar = ({ theme }) => {
       >
         <Search size={16} />
         <span>Search...</span>
-        <kbd className={`px-2 py-0.5 text-xs rounded ${
-          isDark ? 'bg-white/10' : 'bg-white'
-        }`}>
-          <Command size={12} className="inline mr-1" />
-          K
+        <kbd className={`px-2 py-0.5 text-xs rounded ${isDark ? 'bg-white/10' : 'bg-white'}`}>
+          <Command size={12} className="inline mr-1" />K
         </kbd>
       </button>
 
-      <SearchModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        theme={theme}
-      />
+      <SearchModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} theme={theme} />
     </>
   );
 };
