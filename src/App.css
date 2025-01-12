@@ -65,7 +65,7 @@ body {
 
 .blog-post code {
   font-family: var(--font-mono);
-  font-size: 0.9em;
+  font-size: 1em;
 }
 
 /* Keep all existing styles and add these new styles at the end */
